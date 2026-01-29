@@ -1,806 +1,239 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width,initial-scale=1" />
-	<meta name="description"
-		content="Simon Fait Tout — Coffee Tech : maintenance, réglages, formation baristas, support rush sur appel, web & SEO pour coffeeshops." />
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Simon Fait Tout — Coffee Tech</title>
 
-	<!-- Ultra stylées : Fraunces (editorial), Space Grotesk (moderne), JetBrains Mono (tech) -->
+	<!-- Google Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link
-		href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Space+Grotesk:wght@300..700&family=JetBrains+Mono:wght@400..700&display=swap"
+
+	<!-- Gros titres impact -->
+	<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+	<!-- Titres secondaires -->
+	<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+
+	<!-- Texte principal -->
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+	<!-- Accent fun -->
+	<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+	<!-- Chic moderne -->
+	<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+
+	<!-- Nouvelle police éditoriale / farfelue maîtrisée -->
+	<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap"
 		rel="stylesheet">
 
 	<style>
 		:root {
-			--bg: #07080a;
-			--panel: rgba(255, 255, 255, .06);
-			--panel2: rgba(255, 255, 255, .085);
-			--stroke: rgba(255, 255, 255, .12);
-			--text: rgba(255, 255, 255, .92);
-			--muted: rgba(255, 255, 255, .68);
-			--muted2: rgba(255, 255, 255, .55);
-			--shadow: 0 12px 40px rgba(0, 0, 0, .55);
-			--radius: 22px;
-
-			--a: #78ffd6;
-			--b: #a8c0ff;
-			--c: #ffdd7e;
-			--d: #ff6fd8;
+			--bg: #f7f5f2;
+			--text: #1d1d1d;
+			--muted: #6f6f6f;
+			--accent: #c46a2b;
+			--card: #ffffff;
 		}
 
 		* {
-			box-sizing: border-box
-		}
-
-		html,
-		body {
-			height: 100%
+			box-sizing: border-box;
 		}
 
 		body {
 			margin: 0;
-			background: radial-gradient(1100px 800px at 10% 10%, rgba(120, 255, 214, .10), transparent 55%),
-				radial-gradient(1000px 800px at 90% 20%, rgba(168, 192, 255, .12), transparent 55%),
-				radial-gradient(900px 700px at 50% 95%, rgba(255, 111, 216, .10), transparent 60%),
-				var(--bg);
+			background: var(--bg);
 			color: var(--text);
-			font-family: "Space Grotesk", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-			line-height: 1.35;
-			letter-spacing: .2px;
+			font-family: 'Inter', sans-serif;
+			line-height: 1.65;
 		}
 
-		a {
-			color: inherit
+		header {
+			padding: 90px 20px 70px;
+			text-align: center;
 		}
 
-		.wrap {
-			max-width: 1100px;
-			margin: 0 auto;
-			padding: 28px 18px 70px
+		header img {
+			width: 300px;
+			max-width: 85%;
+			border-radius: 28px;
+			margin-bottom: 28px;
+			box-shadow: 0 25px 50px rgba(0, 0, 0, 0.18);
 		}
 
-		.nav {
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			gap: 14px;
-			position: sticky;
-			top: 0;
-			z-index: 10;
-			padding: 14px 0 12px;
-			backdrop-filter: blur(10px);
-			background: linear-gradient(to bottom, rgba(7, 8, 10, .78), rgba(7, 8, 10, .10));
-		}
-
-		.brand {
-			display: flex;
-			align-items: center;
-			gap: 12px;
-			min-width: 240px;
-		}
-
-		.logo {
-			width: 42px;
-			height: 42px;
-			border-radius: 14px;
-			background: linear-gradient(135deg, rgba(120, 255, 214, .22), rgba(168, 192, 255, .22), rgba(255, 111, 216, .18));
-			border: 1px solid var(--stroke);
-			box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
-			position: relative;
-			overflow: hidden;
-		}
-
-		.logo::after {
-			content: "";
-			position: absolute;
-			inset: -40%;
-			background: conic-gradient(from 180deg, rgba(120, 255, 214, .0), rgba(120, 255, 214, .22), rgba(255, 111, 216, .18), rgba(168, 192, 255, .22), rgba(120, 255, 214, .0));
-			animation: spin 7.5s linear infinite;
-		}
-
-		@keyframes spin {
-			to {
-				transform: rotate(360deg)
-			}
-		}
-
-		.brand h1 {
+		h1 {
+			font-family: 'Anton', sans-serif;
+			font-size: 3.4rem;
+			letter-spacing: 1px;
 			margin: 0;
-			font-family: "Fraunces", serif;
-			font-weight: 650;
-			font-size: 18px;
-			letter-spacing: .2px;
-		}
-
-		.tag {
-			margin: 2px 0 0;
-			font-size: 12px;
-			color: var(--muted2);
-		}
-
-		.navlinks {
-			display: flex;
-			gap: 10px;
-			flex-wrap: wrap;
-			justify-content: flex-end;
-		}
-
-		.pill {
-			text-decoration: none;
-			padding: 10px 12px;
-			border-radius: 999px;
-			border: 1px solid var(--stroke);
-			background: rgba(255, 255, 255, .04);
-			color: var(--muted);
-			font-size: 13px;
-			transition: transform .15s ease, background .15s ease, border-color .15s ease;
-		}
-
-		.pill:hover {
-			transform: translateY(-1px);
-			background: rgba(255, 255, 255, .06);
-			border-color: rgba(255, 255, 255, .18)
-		}
-
-		.pill.primary {
-			background: linear-gradient(135deg, rgba(120, 255, 214, .18), rgba(168, 192, 255, .18));
-			color: rgba(255, 255, 255, .92);
-			border-color: rgba(120, 255, 214, .26);
-		}
-
-		.hero {
-			margin-top: 18px;
-			display: grid;
-			grid-template-columns: 1.2fr .8fr;
-			gap: 18px;
-			align-items: stretch;
-		}
-
-		.card {
-			border-radius: var(--radius);
-			background: linear-gradient(180deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, .04));
-			border: 1px solid var(--stroke);
-			box-shadow: var(--shadow);
-			padding: 22px;
-			position: relative;
-			overflow: hidden;
-		}
-
-		.card::before {
-			content: "";
-			position: absolute;
-			inset: -2px;
-			background: radial-gradient(700px 220px at 20% 10%, rgba(120, 255, 214, .14), transparent 60%),
-				radial-gradient(700px 220px at 80% 0%, rgba(168, 192, 255, .14), transparent 60%);
-			pointer-events: none;
-			opacity: .9;
-		}
-
-		.card>* {
-			position: relative
-		}
-
-		.kicker {
-			display: inline-flex;
-			align-items: center;
-			gap: 10px;
-			font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-			font-size: 12px;
-			color: var(--muted);
-			background: rgba(255, 255, 255, .045);
-			border: 1px solid rgba(255, 255, 255, .10);
-			padding: 8px 10px;
-			border-radius: 999px;
-		}
-
-		.dot {
-			width: 8px;
-			height: 8px;
-			border-radius: 99px;
-			background: linear-gradient(135deg, var(--a), var(--b));
-			box-shadow: 0 0 18px rgba(120, 255, 214, .28);
-		}
-
-		.title {
-			margin: 14px 0 10px;
-			font-family: "Fraunces", serif;
-			font-size: 44px;
-			line-height: 1.04;
-			letter-spacing: .2px;
 		}
 
 		.subtitle {
-			margin: 0 0 16px;
+			margin-top: 14px;
+			font-family: 'Bebas Neue', sans-serif;
+			font-size: 1.5rem;
+			letter-spacing: 3px;
 			color: var(--muted);
-			font-size: 16px;
-			max-width: 62ch;
 		}
 
-		.chips {
-			display: flex;
-			flex-wrap: wrap;
-			gap: 8px;
-			margin-top: 10px
-		}
-
-		.chip {
-			padding: 9px 11px;
-			border-radius: 999px;
-			border: 1px solid rgba(255, 255, 255, .12);
-			background: rgba(255, 255, 255, .035);
-			font-size: 13px;
-			color: rgba(255, 255, 255, .82);
-		}
-
-		.ctaRow {
-			display: flex;
-			gap: 10px;
-			flex-wrap: wrap;
-			margin-top: 16px
-		}
-
-		.btn {
-			display: inline-flex;
-			align-items: center;
-			justify-content: center;
-			gap: 10px;
-			text-decoration: none;
-			padding: 12px 14px;
-			border-radius: 14px;
-			border: 1px solid rgba(255, 255, 255, .14);
-			background: rgba(255, 255, 255, .05);
-			color: rgba(255, 255, 255, .92);
-			font-weight: 600;
-			transition: transform .15s ease, background .15s ease, border-color .15s ease;
-		}
-
-		.btn:hover {
-			transform: translateY(-1px);
-			background: rgba(255, 255, 255, .065);
-			border-color: rgba(255, 255, 255, .22)
-		}
-
-		.btn.primary {
-			background: linear-gradient(135deg, rgba(120, 255, 214, .20), rgba(168, 192, 255, .20));
-			border-color: rgba(120, 255, 214, .28);
-		}
-
-		.btn .mono {
-			font-family: "JetBrains Mono", monospace;
-			font-size: 12px;
-			color: rgba(255, 255, 255, .75);
-			font-weight: 500
-		}
-
-		.side {
-			display: flex;
-			flex-direction: column;
-			gap: 18px;
-		}
-
-		.mini {
-			padding: 18px;
-			border-radius: var(--radius);
-			border: 1px solid var(--stroke);
-			background: rgba(255, 255, 255, .04);
-		}
-
-		.mini h3 {
-			margin: 0 0 8px;
-			font-family: "Fraunces", serif;
-			font-size: 18px;
-		}
-
-		.mini p {
-			margin: 0;
-			color: var(--muted);
-			font-size: 14px
-		}
-
-		.mini ul {
-			margin: 12px 0 0;
-			padding: 0;
-			list-style: none;
-			display: grid;
-			gap: 10px
-		}
-
-		.mini li {
-			display: flex;
-			gap: 10px;
-			align-items: flex-start;
-			color: rgba(255, 255, 255, .82);
-			font-size: 14px;
-		}
-
-		.bullet {
-			width: 18px;
-			height: 18px;
-			border-radius: 8px;
-			background: rgba(255, 255, 255, .05);
-			border: 1px solid rgba(255, 255, 255, .12);
-			display: grid;
-			place-items: center;
-			margin-top: 1px;
-			font-family: "JetBrains Mono", monospace;
-			font-size: 12px;
-			color: rgba(255, 255, 255, .7);
+		main {
+			max-width: 960px;
+			margin: 0 auto;
+			padding: 0 20px 90px;
 		}
 
 		section {
-			margin-top: 26px
+			margin-top: 90px;
 		}
 
-		.sectionTitle {
-			font-family: "Fraunces", serif;
-			font-size: 26px;
-			margin: 0 0 12px;
-			letter-spacing: .2px;
+		h2 {
+			font-family: 'Archivo Black', sans-serif;
+			font-size: 2.1rem;
+			margin-bottom: 26px;
+			letter-spacing: 1px;
 		}
 
-		.sectionSub {
-			margin: 0 0 16px;
-			color: var(--muted);
-			max-width: 75ch
+		p {
+			max-width: 760px;
+			font-size: 1rem;
+			margin-bottom: 18px;
 		}
 
-		.grid3 {
-			display: grid;
-			grid-template-columns: repeat(3, 1fr);
-			gap: 14px
+		strong {
+			font-weight: 600;
 		}
 
-		.service {
-			padding: 18px;
-			border-radius: var(--radius);
-			border: 1px solid var(--stroke);
-			background: linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .03));
-			min-height: 168px;
+		/* LISTE SERVICES */
+		.services {
+			list-style: none;
+			padding: 0;
+			margin-top: 28px;
+			max-width: 720px;
+		}
+
+		.services li {
+			font-family: 'Fraunces', serif;
+			font-size: 1.05rem;
+			margin-bottom: 14px;
+			padding-left: 28px;
 			position: relative;
-			overflow: hidden;
 		}
 
-		.service::before {
-			content: "";
+		.services li::before {
+			content: "—";
 			position: absolute;
-			inset: -30%;
-			background: radial-gradient(600px 220px at 20% 20%, rgba(255, 221, 126, .10), transparent 60%),
-				radial-gradient(600px 220px at 80% 0%, rgba(255, 111, 216, .10), transparent 60%);
-			pointer-events: none;
-			opacity: .8;
-			transform: rotate(-6deg);
+			left: 0;
+			color: var(--accent);
+			font-weight: 700;
 		}
 
-		.service>* {
-			position: relative
-		}
-
-		.service h4 {
-			margin: 0 0 8px;
-			font-size: 16px
-		}
-
-		.service p {
-			margin: 0;
-			color: var(--muted);
-			font-size: 14px
-		}
-
-		.badge {
-			display: inline-flex;
-			gap: 8px;
-			align-items: center;
-			padding: 8px 10px;
-			border-radius: 999px;
-			border: 1px solid rgba(255, 255, 255, .12);
-			background: rgba(0, 0, 0, .10);
-			font-family: "JetBrains Mono", monospace;
-			font-size: 12px;
-			color: rgba(255, 255, 255, .72);
-			margin-bottom: 10px;
-		}
-
-		.pricing {
-			display: grid;
-			grid-template-columns: 1fr 1fr;
-			gap: 14px;
-			align-items: stretch;
+		.card {
+			background: var(--card);
+			border-radius: 18px;
+			padding: 28px;
+			box-shadow: 0 12px 35px rgba(0, 0, 0, 0.07);
 		}
 
 		table {
 			width: 100%;
-			border-collapse: separate;
-			border-spacing: 0;
-			overflow: hidden;
-			border-radius: var(--radius);
-			border: 1px solid var(--stroke);
-			background: rgba(255, 255, 255, .04);
-			box-shadow: var(--shadow);
+			border-collapse: collapse;
+			font-family: 'Space Grotesk', sans-serif;
+			font-size: 0.95rem;
 		}
 
-		th,
 		td {
-			text-align: left;
-			padding: 14px 14px;
-			border-bottom: 1px solid rgba(255, 255, 255, .08);
-			vertical-align: top;
+			padding: 16px 10px;
+			border-bottom: 1px solid #eee;
 		}
 
-		th {
-			font-family: "JetBrains Mono", monospace;
-			font-size: 12px;
-			letter-spacing: .6px;
-			text-transform: uppercase;
-			color: rgba(255, 255, 255, .72);
-			background: rgba(255, 255, 255, .05);
+		td:first-child {
+			font-weight: 600;
 		}
 
-		tr:last-child td {
-			border-bottom: none
-		}
-
-		.price {
-			font-family: "Fraunces", serif;
-			font-size: 18px;
+		td:last-child {
+			text-align: right;
 			white-space: nowrap;
 		}
 
-		.note {
-			color: var(--muted2);
-			font-size: 13px;
-			margin-top: 10px;
-		}
-
-		.contactCard {
-			display: grid;
-			grid-template-columns: 1fr 1fr;
-			gap: 14px;
-		}
-
-		.field {
-			display: flex;
-			flex-direction: column;
-			gap: 6px;
-			margin-bottom: 12px;
-		}
-
-		label {
-			font-size: 12px;
-			color: var(--muted2);
-			font-family: "JetBrains Mono", monospace;
-			letter-spacing: .3px;
-		}
-
-		input,
-		textarea {
-			width: 100%;
-			padding: 12px 12px;
-			border-radius: 14px;
-			border: 1px solid rgba(255, 255, 255, .14);
-			background: rgba(0, 0, 0, .16);
-			color: rgba(255, 255, 255, .92);
-			outline: none;
-		}
-
-		textarea {
-			min-height: 130px;
-			resize: vertical
-		}
-
-		.small {
-			font-size: 12px;
-			color: var(--muted2);
-			margin: 10px 0 0;
-		}
-
 		footer {
-			margin-top: 28px;
-			color: var(--muted2);
-			font-size: 12px;
-			display: flex;
-			gap: 10px;
-			flex-wrap: wrap;
-			justify-content: space-between;
-			padding-top: 18px;
-			border-top: 1px solid rgba(255, 255, 255, .10);
-		}
-
-		/* Responsive */
-		@media (max-width: 940px) {
-			.hero {
-				grid-template-columns: 1fr;
-			}
-
-			.grid3 {
-				grid-template-columns: 1fr
-			}
-
-			.pricing {
-				grid-template-columns: 1fr
-			}
-
-			.contactCard {
-				grid-template-columns: 1fr
-			}
-
-			.title {
-				font-size: 38px
-			}
-
-			.brand {
-				min-width: auto
-			}
+			text-align: center;
+			padding: 50px 20px;
+			font-size: 0.85rem;
+			color: var(--muted);
+			font-family: 'Space Grotesk', sans-serif;
 		}
 	</style>
 </head>
 
 <body>
-	<div class="wrap">
-		<header class="nav">
-			<div class="brand">
-				<div class="logo" aria-hidden="true"></div>
-				<div>
-					<h1>Simon Fait Tout — <span style="color:rgba(255,255,255,.85)">Coffee Tech</span></h1>
-					<div class="tag">Atelier mobile • Dépannage • Réglages • Formation • Web/SEO</div>
-				</div>
+
+	<header>
+		<img src="logo.png" alt="Simon Fait Tout">
+
+		<h1>Simon Fait Tout</h1>
+
+		<div class="subtitle">
+			Coffee Tech • Dépannage • Support
+		</div>
+	</header>
+
+	<main>
+
+		<section>
+			<h2>À propos</h2>
+
+			<p>
+				Machines à café • moulins • machines à glaçons • frigos pro • comptoirs et plus encore —
+				<strong>je démonte, je répare, je règle : ça repart.</strong>
+			</p>
+
+			<ul class="services">
+				<li>Développement de sites web & SEO</li>
+				<li>Formation et coaching des équipes</li>
+				<li>Support pendant les rushs</li>
+				<li>Gestion et organisation des pièces comptables</li>
+			</ul>
+		</section>
+
+		<section>
+			<h2>Support « Rush »</h2>
+
+			<div class="card">
+				<table>
+					<tr>
+						<td>Forfait 2 h</td>
+						<td>50 €</td>
+					</tr>
+					<tr>
+						<td>Forfait 4 h</td>
+						<td>80 €</td>
+					</tr>
+					<tr>
+						<td>Heure supplémentaire</td>
+						<td>+40 € / h</td>
+					</tr>
+					<tr>
+						<td>Urgence &lt; 24 h</td>
+						<td>+25 %</td>
+					</tr>
+					<tr>
+						<td>Déplacement</td>
+						<td>Forfait selon zone</td>
+					</tr>
+				</table>
 			</div>
 
-			<nav class="navlinks" aria-label="Navigation">
-				<a class="pill" href="#services">Services</a>
-				<a class="pill" href="#rush">Support Rush</a>
-				<a class="pill" href="#web">Web & SEO</a>
-				<a class="pill primary" href="#contact">Demander un devis</a>
-			</nav>
-		</header>
+		</section>
 
-		<main>
-			<div class="hero">
-				<section class="card" aria-label="Présentation">
-					<div class="kicker"><span class="dot"></span> Coffee Tech pour coffeeshops — sur site</div>
-					<h2 class="title">Je démonte, je répare, je règle : <span
-							style="background:linear-gradient(135deg,var(--a),var(--b)); -webkit-background-clip:text; background-clip:text; color:transparent;">ça
-							repart.</span></h2>
-					<p class="subtitle">
-						Machines à café • moulins • machines à glaçons • frigos pro • comptoirs (et plus encore).
-						Formation & coaching des équipes, support pendant les rushs sur appel. + Développement web & SEO
-						pour coffeeshops.
-					</p>
+	</main>
 
-					<div class="chips" aria-label="Spécialités">
-						<span class="chip">Diagnostic & maintenance</span>
-						<span class="chip">Réglages / calibration</span>
-						<span class="chip">Workflow & organisation bar</span>
-						<span class="chip">Formation équipes</span>
-						<span class="chip">Support rush sur appel</span>
-						<span class="chip">Site web + SEO</span>
-					</div>
+	<footer>
+		© 2026 Simon Fait Tout — Tous droits réservés
+	</footer>
 
-					<div class="ctaRow">
-						<a class="btn primary" href="#rush">Voir les prix Support Rush <span class="mono">→</span></a>
-						<a class="btn" href="#contact">Me contacter <span class="mono">@</span></a>
-					</div>
-
-					<p class="note">
-						*Le support rush est une prestation d’accompagnement (coaching terrain + organisation), sur
-						appel, sans planning fixe.
-					</p>
-				</section>
-
-				<aside class="side" aria-label="Encarts">
-					<div class="mini">
-						<h3>Interventions</h3>
-						<p>Sur site chez les coffeeshops. Délais rapides selon dispo.</p>
-						<ul>
-							<li><span class="bullet">01</span>Machine café / moulin / glaçons : remise en état &
-								réglages</li>
-							<li><span class="bullet">02</span>Formation baristas : standards, hygiène, gestes,
-								organisation</li>
-							<li><span class="bullet">03</span>Rush : support sur appel, mise en place, coaching en live
-							</li>
-						</ul>
-					</div>
-
-					<div class="mini">
-						<h3>Pour qui ?</h3>
-						<p>
-							Coffeeshops, corners café, restaurants, hôtels, pop-ups, événements.
-							Objectif : du matériel fiable, un bar fluide, et une équipe autonome.
-						</p>
-					</div>
-				</aside>
-			</div>
-
-			<section id="services">
-				<h3 class="sectionTitle">Services</h3>
-				<p class="sectionSub">
-					Une approche “tech + terrain” : je règle la partie matériel, j’optimise l’opérationnel, et je
-					transmets à l’équipe.
-				</p>
-
-				<div class="grid3">
-					<div class="service">
-						<div class="badge">COFFEE / TECH</div>
-						<h4>Maintenance & dépannage</h4>
-						<p>Machines à café, moulins, machines à glaçons, filtration, froid “hors fluide”, comptoirs.
-							Diagnostic, remise en service, prévention.</p>
-					</div>
-
-					<div class="service">
-						<div class="badge">TEAM / TRAINING</div>
-						<h4>Formation & coaching</h4>
-						<p>Espresso, lait, hygiène, routines, standards et gestes. Objectif : de la constance et du
-							débit sans stress.</p>
-					</div>
-
-					<div class="service">
-						<div class="badge">RUSH / ON-CALL</div>
-						<h4>Support pendant les rushs</h4>
-						<p>Sur appel : mise en place, organisation du poste, coaching terrain. Pour passer un pic
-							d’activité proprement.</p>
-					</div>
-				</div>
-			</section>
-
-			<section id="rush">
-				<h3 class="sectionTitle">Support Rush — Forfaits</h3>
-				<p class="sectionSub">
-					Intervention sur appel, sans planning fixe. Objectif : aider l’équipe à tenir le rythme avec une
-					organisation claire.
-				</p>
-
-				<div class="pricing">
-					<table aria-label="Prix Support Rush">
-						<thead>
-							<tr>
-								<th>Forfait</th>
-								<th>Prix</th>
-								<th>Inclus</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><strong>2h</strong></td>
-								<td class="price">30€</td>
-								<td>Mise en place + coaching terrain + optimisation rapide du workflow</td>
-							</tr>
-							<tr>
-								<td><strong>4h</strong></td>
-								<td class="price">50€</td>
-								<td>Support rush + debrief + recommandations d’organisation</td>
-							</tr>
-							<tr>
-								<td><strong>Heure sup</strong></td>
-								<td class="price">+10€/h</td>
-								<td>Au-delà du forfait</td>
-							</tr>
-						</tbody>
-					</table>
-
-					<div class="card">
-						<h3 class="sectionTitle" style="margin-top:0">Conditions</h3>
-						<p class="sectionSub" style="margin-bottom:10px">
-							Simple, clair, efficace.
-						</p>
-						<ul style="margin:0; padding-left:18px; color:var(--muted)">
-							<li><strong>Urgence &lt; 24h</strong> : +25%</li>
-							<li><strong>Dimanche / férié / nocturne</strong> : +15%</li>
-							<li><strong>Déplacement</strong> : forfait selon zone</li>
-							<li><strong>Minimum</strong> : 2h</li>
-							<li><strong>Annulation &lt; 24h</strong> : 50%</li>
-						</ul>
-						<p class="note" style="margin-top:12px">
-							Astuce : un message avec <span style="font-family:'JetBrains Mono',monospace">adresse +
-								heure + matériel + besoin</span> = devis ultra rapide.
-						</p>
-						<a class="btn primary" href="#contact">Demander une intervention <span class="mono">→</span></a>
-					</div>
-				</div>
-			</section>
-
-			<section id="web">
-				<h3 class="sectionTitle">Développement web & SEO (coffeeshops)</h3>
-				<p class="sectionSub">
-					Site vitrine simple, rapide, propre. SEO de base : structure, performances, contenus, pages clés.
-				</p>
-
-				<div class="grid3">
-					<div class="service">
-						<div class="badge">WEB</div>
-						<h4>Site vitrine</h4>
-						<p>Page(s) claires : menu, horaires, accès, contact. Mobile-first, vitesse, design propre.</p>
-					</div>
-					<div class="service">
-						<div class="badge">SEO</div>
-						<h4>Référencement</h4>
-						<p>Optimisation titres/sections, contenus, performance, base technique. (Et conseils fiche
-							Google si besoin.)</p>
-					</div>
-					<div class="service">
-						<div class="badge">OPS</div>
-						<h4>Maintenance & updates</h4>
-						<p>Petites modifs, mise à jour horaires/menu, pages saisonnières, optimisation continue.</p>
-					</div>
-				</div>
-			</section>
-
-			<section id="admin">
-				<h3 class="sectionTitle">Gestion & organisation des pièces</h3>
-				<p class="sectionSub">
-					Je peux t’aider à garder un dossier nickel : collecte, tri, numérisation, classement et transmission
-					au comptable.
-				</p>
-				<div class="card">
-					<div class="badge">ADMIN</div>
-					<h4 style="margin:0 0 8px">Organisation des pièces comptables</h4>
-					<p style="margin:0; color:var(--muted)">
-						Tri/scan/archivage, renommage de fichiers, regroupement par période, transmission au cabinet.
-						(Sans tenue de comptabilité.)
-					</p>
-				</div>
-			</section>
-
-			<section id="contact">
-				<h3 class="sectionTitle">Contact</h3>
-				<p class="sectionSub">
-					Remplis ce formulaire (ou copie-colle le modèle de message). Je reviens vite avec une proposition.
-				</p>
-
-				<div class="contactCard">
-					<div class="card">
-						<h4 style="margin:0 0 12px">Modèle de message (rapide)</h4>
-						<p
-							style="margin:0 0 10px; color:var(--muted); font-family:'JetBrains Mono',monospace; font-size:12.5px; line-height:1.45;">
-							Salut Simon, on a besoin de toi pour : <br>
-							• Type : maintenance / formation / rush / web <br>
-							• Lieu : … <br>
-							• Date/heure : … <br>
-							• Matériel : machine … / moulin … / ice maker … <br>
-							• Problème / objectif : …
-						</p>
-						<p class="small">⚠️ Remplace les “…” et envoie par SMS / WhatsApp / email (à remplir
-							ci-dessous).</p>
-					</div>
-
-					<div class="card">
-						<form
-							onsubmit="event.preventDefault(); alert('Remplace les champs par tes vrais contacts (email/tel) puis relie ce formulaire à ton outil (Formspree, Netlify Forms, etc.).');">
-							<div class="field">
-								<label for="name">Nom / coffeeshop</label>
-								<input id="name" name="name" placeholder="ex : Brume Coffee" />
-							</div>
-							<div class="field">
-								<label for="contactField">Email / téléphone</label>
-								<input id="contactField" name="contact" placeholder="ex : +33… / email@…" />
-							</div>
-							<div class="field">
-								<label for="msg">Besoin</label>
-								<textarea id="msg" name="message"
-									placeholder="Décris le besoin + date/heure + lieu + matériel"></textarea>
-							</div>
-							<button class="btn primary" type="submit">Envoyer (à connecter) <span
-									class="mono">→</span></button>
-							<p class="small">Pour activer l’envoi réel : dis-moi où tu veux héberger (OVH / Netlify /
-								Vercel / WordPress) et je te donne la version branchée.</p>
-						</form>
-					</div>
-				</div>
-			</section>
-		</main>
-
-		<footer>
-			<div>© <span id="y"></span> Simon Fait Tout — Coffee Tech</div>
-			<div style="font-family:'JetBrains Mono',monospace;">Maintenance • Formation • Rush • Web/SEO</div>
-		</footer>
-	</div>
-
-	<script>
-		document.getElementById("y").textContent = new Date().getFullYear();
-	</script>
 </body>
 
 </html>
